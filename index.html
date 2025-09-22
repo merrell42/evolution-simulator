@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolution Simulator Demonstrating Darlington's Theory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="setup()">
+    <canvas id="gridCanvas"></canvas>
+    <script src="simulation.js"></script>
+    <script src="render.js"></script>
+    <script src="setup.js"></script>
+    <div class="centered-container">
+        <div class="controls">
+            <div>
+                <span>
+                    <label for="attemptPerCell">Attempt Per Cell:</label>
+                    <input type="text" id="attemptPerCellText" value="0" class="text-input" onchange="updateFromTextBox()"/>
+                </span>
+                <input type="range" id="attemptPerCell" min="0.1" max="10" value="0" step="0.01" onchange="updateFromSlider()">
+            </div>
+            <div>
+                <span>
+                    <label for="dispersalAmount">Dispersal Amount:</label>
+                    <input type="text" id="dispersalAmountText" value="0" class="text-input" onchange="updateFromTextBox()" />
+                </span>
+                <input type="range" id="dispersalAmount" min="0" max="10" value="0" step="0.01" onchange="updateFromSlider()">
+            </div>
+            <div>
+                <span>
+                    <label for="mutationBias">Mutation Bias: </label>
+                    <input type="text" id="mutationBiasText" value="0" class="text-input" onchange="updateFromTextBox()" />
+                </span>
+                <input type="range" id="mutationBias" min="-5" max="2" value="0" step="0.01" onchange="updateFromSlider()">
+            </div>
+            <div>
+                <span>
+                    <label for="mutationAmount">Mutation Amount: </label>
+                    <input type="text" id="mutationAmountText" value="0" class="text-input" onchange="updateFromTextBox()" />
+                </span>
+                <input type="range" id="mutationAmount" min="0" max="10" value="0" step="0.01" onchange="updateFromSlider()">
+            </div>
+            <div>
+                <label>Map:</label>
+                <select id="mapSelect">
+                    <option value="none">None</option>
+                    <option value="world" selected>World</option>
+                    <option value="melanesia">Melanesia</option>
+                </select>
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" id="saveImagesCheckbox" onchange="toggleImageSaving()"> Save Images
+                </label>
+            </div>
+            <div>
+                <button id="resetGridButton" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
